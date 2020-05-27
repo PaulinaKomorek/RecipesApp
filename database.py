@@ -9,6 +9,7 @@ class Recipe(db.Model):
     name=db.Column(db.String(64))
     content=db.Column(db.String)
     time=db.Column(db.Integer)
+    difficulty=db.Column(db.String(64))
 
     ingredients=db.relationship("Ingredient", backref="recipe", lazy=True)
 

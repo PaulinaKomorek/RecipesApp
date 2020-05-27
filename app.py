@@ -21,4 +21,7 @@ def search():
 
 @app.route("/recipe/<idx>", methods=["get"])
 def recipe(idx: int):
-    return render_template("recipe.html")
+    recipe=Recipe.query.get(idx)
+    if recipe is None:
+        return render_template("not_found.html")
+    return render_template("recipe.html", recipe=recipe)
