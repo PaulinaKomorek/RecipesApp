@@ -3,14 +3,41 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
-
+    <title>{{recipe.name}}</title>
 </head>
 
 <body>
     <div class="container">
-
+        <h1 class="mb-5 mt-5">{{recipe.name}}</h1>
+        <div class="row">
+            <div class="col-3">
+                <h2>Składniki:</h2>
+                <ul>
+                    {% for i in recipe.ingredients%}
+                    <li>{{i.product.name}} {{i.amount}}</li>
+                    {% endfor %}
+                </ul>
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=http://127.0.0.1:5000/recipe/{{recipe.idx}} "></img>
+            </div>
+            <div class="col-9">
+                <h2>Przygotowanie:</h2>
+                <p>{{recipe.content}}</p>
+                <div class="row">
+                    <div class="col-2">
+                        <i class="fas fa-clock"></i>
+                        <p>{{recipe.time}} min</p>
+                    </div>
+                    <div class="col-2">
+                        <i class="fas fa-chart-bar"></i>
+                        <p>{{recipe.difficulty}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
