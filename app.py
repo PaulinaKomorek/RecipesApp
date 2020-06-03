@@ -2,9 +2,15 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from database import db
 from queries import *
+from config import URI, TRACK
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://recipesapp:1234@localhost/recipesdb'
+
+if True:
+	app.config['SQLALCHEMY_DATABASE_URI'] = URI
+else:
+	app.config['SQLALCHEMY_DATABASE_URI'] = ''
+	
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
