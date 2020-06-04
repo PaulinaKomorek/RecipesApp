@@ -2,11 +2,10 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from database import *
 from queries import *
-import config as cfg
+import config_loader 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(cfg.my_cfg["user"], cfg.my_cfg["passwd"], cfg.my_cfg["host"], cfg.my_cfg["db"])
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object('config_loader')
 db.init_app(app)
 
 
