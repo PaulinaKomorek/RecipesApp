@@ -42,13 +42,13 @@ def form():
     return render_template("form.html")
 
 
-@app.route("/send_form", methods=["post"])
+@app.route("/confirmation", methods=["post"])
 def send_form():
     title = request.form["title"]
     ingredients = request.form["ingredients"]
     recipe = request.form["recipe"]
     time = request.form["time"]
     difficulty = request.form["difficulty"]
-    with open("sent_recipes/"+random_string()+".txt", "w") as fs:
+    with open("sent_recipes/"+random_string()+".txt", "w", encoding="utf-8") as fs:
         fs.write("\n\n".join([title, ingredients, recipe, time, difficulty]))
-    return render_template("form_confirmation.html")
+    return render_template("form_confirmation.html", title=title)

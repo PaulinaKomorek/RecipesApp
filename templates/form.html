@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
     <title>Dodaj własny przepis</title>
+    <meta charset="UTF-8">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
         <br>
         <h1 class="text-center"> Dodaj własny przepis </h1>
         <br>
-        <form action="/send_form" method="post">
+        <form action="/confirmation" method="post">
             <div class="form-group">
                 <label for="title">Nazwa potrawy:</label>
                 <input type="text" class="form-control" name="title" id="title">

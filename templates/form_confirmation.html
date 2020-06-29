@@ -5,10 +5,33 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+    <meta charset="UTF-8">
+<title>Potwierdzenie przesłania przepisu</title>
 </head>
 
 <body>
     <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-3">
+                </div>
+                <div class="col-6">
+                    <br>
+                    <h1 class="text-center">Potwierdzenie przesłania przepisu</h1>
+                    <br>
+                    <br>
+                    <h5 class="text-success">Przepis: "{{title}}" został przesłany do weryfikacji przez nasz zespół.</h5>
+                    <br>
+                    <br>
+                    <h5 class="text-success"> Po zaakceptowaniu zostanie przesłany do bazy. Dziękujemy!</h5>
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+        </div>
+    
       
 
     </div>
