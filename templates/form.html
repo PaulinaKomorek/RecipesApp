@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='icon.png') }}">
+    <title>Dodaj własny przepis</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <h1 class="text-center"> Dodaj własny przepis </h1>
+        <br>
+        <form action="/confirmation" method="post">
+            <div class="form-group">
+                <label for="title">Nazwa potrawy:</label>
+                <input type="text" class="form-control" name="title" id="title">
+            </div>
+            <div class="form-group">
+                <label for="ingredients">Składniki:</label>
+                <input type="text" class="form-control" name="ingredients" id="ingredients"
+                    placeholder="Proszę wypisać składniki wraz z ich ilością po spacji, kolejne składniki należy rozdzielić przecinkiem.">
+                <div class="form-group">
+                    <label for="recipe">Treść przepisu:</label>
+                    <input type="text" class="form-control" name="recipe" id="recipe">
+                </div>
+                <div class="form-group">
+                    <label for="time">Czas przygotowania:</label>
+                    <input type="number" class="form-control" name="time" id="time" aria-describedby="address_to_send"
+                        placeholder="Proszę określić czas przygotowania potrawy w minutach.">
+                </div>
+                <div class="form-group">
+                    <label for="difficulty">Poziom zaawansowania przygotowania potrawy:</label>
+                    <select class="form-control" name="difficulty" id="difficulty">
+                        <option>łatwy</option>
+                        <option>średni</option>
+                        <option>trudny</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-dark float-right">Wyśij przepis</button>
+        </form>
+        <p class="text-danger mt-4">{{warning}}</p>
+    </div>
+    <div class="col-3">
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

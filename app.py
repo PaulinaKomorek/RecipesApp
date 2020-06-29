@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from database import *
 from queries import *
 import config_loader 
+import string
+import random
 
 app = Flask(__name__)
 app.config.from_object('config_loader')
@@ -28,3 +30,25 @@ def recipe(idx: int):
     if recipe is None:
         return render_template("not_found.html")
     return render_template("recipe.html", recipe=recipe)
+
+
+def random_string(stringLength=8):
+    letters = string.ascii_lowercase
+    return ''.join(random.choice(letters) for i in range(stringLength))
+
+
+@app.route("/form", methods=["get"])
+def form():
+    return render_template("form.html")
+
+
+@app.route("/confirmation", methods=["post"])
+def send_form():
+    title = request.form["title"]
+    ingredients = request.form["ingredients"]
+    recipe = request.form["recipe"]
+    time = request.form["time"]
+    difficulty = request.form["difficulty"]
+    with open("sent_recipes/"+random_string()+".txt", "w", encoding="utf-8") as fs:
+        fs.write("\n\n".join([title, ingredients, recipe, time, difficulty]))
+    return render_template("form_confirmation.html", title=title)
